@@ -33,12 +33,34 @@
 	height: 20px;
 	text-align: center;
 	line-height: 20px;
-	background-color: #007bff; /* Цвет галочки */
-	color: #fff; /* Цвет символа */
+	background-color: #007bff;
+	color: #fff;
 	border-radius: 3px;
   }
 
 .isComplitedCheckbox:checked::before {
-	content: "\2713"; /* Юникодный символ галочки */
-	background-color: #28a745; /* Цвет галочки при выборе */
+	content: "\2713";
+	background-color: #28a745;
   }
+
+.loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
+    border: 5px solid gray;
+    border-radius: 50%;
+    border-left-color: transparent;
+    animation: loader 1s infinite;
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
