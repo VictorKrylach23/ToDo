@@ -1,38 +1,44 @@
-.App {
-  text-align: center;
+.toDo {
+	text-align: center;
+	font-size: 40px;
+	font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	color: #fff;
+	padding: 30px;
+	text-decoration: underline;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.list{
+	display: flex;
+	flex-wrap: wrap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.list li{
+	justify-content: space-between;
+	display: block;
+	color: #fff;
+	font-size: 20px;
+	padding:10px;
+	width:30%;
+	height: 100px;;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	border: 1px solid;
+	border-radius: 15px;
+}
+
+.isComplitedCheckbox::before {
+	content: "";
+	display: block;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	background-color: #007bff; /* Цвет галочки */
+	color: #fff; /* Цвет символа */
+	border-radius: 3px;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.isComplitedCheckbox:checked::before {
+	content: "\2713"; /* Юникодный символ галочки */
+	background-color: #28a745; /* Цвет галочки при выборе */
   }
-  to {
-    transform: rotate(360deg);
-  }
-}

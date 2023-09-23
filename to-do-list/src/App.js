@@ -1,25 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		fetch('https://jsonplaceholder.typicode.com/todos')
+			.then((loadedData) => loadedData.json())
+			.then((loadedProducts) => {
+				setProducts(loadedProducts);
+			});
+	}, []);
+
+	return (
+		<>
+			<div>
+				<div className="toDo">ToDoList</div>
+				<ol className="list">
+					{products.map(({ id, title, completed }) => (
+						<li key={id}>
+							{title}
+							<input
+								type="checkbox"
+								className="isComplitedCheckbox"
+								checked={completed}
+							></input>
+						</li>
+					))}
+				</ol>
+			</div>
+		</>
+	);
 }
 
 export default App;
