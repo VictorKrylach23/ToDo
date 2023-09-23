@@ -10,10 +10,10 @@
 .list{
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 .list li{
-	justify-content: space-between;
 	display: block;
 	color: #fff;
 	font-size: 20px;
@@ -24,6 +24,11 @@
 	margin-bottom: 20px;
 	border: 1px solid;
 	border-radius: 15px;
+}
+
+.isComplitedCheckbox{
+cursor: pointer;
+margin-left: 20px;
 }
 
 .isComplitedCheckbox::before {
@@ -63,4 +68,42 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+form {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+
+.serchInput {
+	width: 20%;
+}
+
+.delTaskButton {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	margin-left: 20px;
+  }
+
+  .delTaskButton svg {
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+  }
+
+.changeTaskButton{
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	margin-left: 25px;
+}
+
+changeTaskButton svg {
+	width: 22px;
+	height: 20px;
+	vertical-align: middle;
 }
