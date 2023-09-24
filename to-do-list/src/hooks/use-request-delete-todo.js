@@ -10,8 +10,7 @@ export const useRequestDeleteToDo = (refreshToDo, setRefreshToDo) => {
 			method: 'DELETE',
 		})
 			.then((rawResponse) => rawResponse.json())
-			.then((response) => {
-				console.log('Элемент удалён, ответ сервера: ', response);
+			.then(() => {
 				setRefreshToDo(!refreshToDo);
 			})
 			.finally(() => setIsDeleting(false));
