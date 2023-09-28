@@ -7,6 +7,8 @@ function App() {
 	const [toDo, setToDO] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [refreshToDo, setRefreshToDo] = useState(false);
+	const [results, setResults] = useState('');
+	const [alphabetFilter, setAlphabetFilter] = useState(false);
 
 	useRequestGetToDo(setIsLoading, refreshToDo, setToDO);
 
@@ -52,6 +54,11 @@ function App() {
 				setNewToDoTitle={setNewToDoTitle}
 				handleAddToDo={handleAddToDo}
 				setIsAdding={setIsAdding}
+				toDo={toDo}
+				setAlphabetFilter={setAlphabetFilter}
+				setToDO={setToDO}
+				setResults={setResults}
+				results={results}
 			/>
 			<ToDoList
 				isLoading={isLoading}
@@ -63,6 +70,10 @@ function App() {
 				setNewToDoTitle={setNewToDoTitle}
 				handleAddToDo={handleAddToDo}
 				setIsAdding={setIsAdding}
+				setRefreshToDo={setRefreshToDo}
+				refreshToDo={refreshToDo}
+				results={results}
+				alphabetFilter={alphabetFilter}
 			/>
 		</>
 	);

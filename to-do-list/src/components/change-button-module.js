@@ -1,9 +1,8 @@
 import styles from './change-button-styles.module.css';
 
-export const ChangeTaskButton = (requestUpdate) => {
-	// const {} = props
+export const ChangeTaskButton = (setIsEdit) => {
 	return (
-		<button className={styles.changeTaskButton} onClick={() => requestUpdate}>
+		<button className={styles.changeTaskButton} onClick={() => setIsEdit(true)}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="16"

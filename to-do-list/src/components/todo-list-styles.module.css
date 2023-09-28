@@ -51,12 +51,12 @@
 		height: 20px;
 		text-align: center;
 		line-height: 20px;
-		background-color: #007bff;
+		background-color: #878a91;
 		color: #fff;
 		border-radius: 3px;
 	  }
 
 .isComplitedCheckbox:checked::before {
 		content: "\2713";
-		background-color: #28a745;
+		background-color: #6cb17c;
 	  }
