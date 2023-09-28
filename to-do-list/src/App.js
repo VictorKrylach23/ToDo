@@ -56,6 +56,7 @@ function App() {
 				setIsAdding={setIsAdding}
 				toDo={toDo}
 				setAlphabetFilter={setAlphabetFilter}
+				alphabetFilter={alphabetFilter}
 				setToDO={setToDO}
 				setResults={setResults}
 				results={results}

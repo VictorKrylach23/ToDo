@@ -12,7 +12,7 @@ export const ToDoList = (props) => {
 		setRefreshToDo,
 		refreshToDo,
 		results,
-		// alphabetFilter,
+		alphabetFilter,
 	} = props;
 
 	return (
@@ -20,33 +20,36 @@ export const ToDoList = (props) => {
 			{isLoading ? (
 				<div className={styles.loader}></div>
 			) : (
-				(results && results !== toDo ? results : toDo).map(
-					({ id, title, completed }) => (
-						<li key={id}>
-							{title}
-							<input
-								type="checkbox"
-								className={styles.isComplitedCheckbox}
-								checked={completed}
-								onChange={() =>
-									requestChangeChecked({
-										id,
-										completed,
-										title,
-										setRefreshToDo,
-										refreshToDo,
-									})
-								}
-							></input>
-							<ChangeTaskButton />
-							<DeleteTaskButton
-								isDeleting={isDeleting}
-								requestDeleteToDo={requestDeleteToDo}
-								id={id}
-							/>
-						</li>
-					),
-				)
+				(alphabetFilter && alphabetFilter !== toDo
+					? alphabetFilter
+					: results && results !== toDo
+					? results
+					: toDo
+				).map(({ id, title, completed }) => (
+					<li key={id}>
+						{title}
+						<input
+							type="checkbox"
+							className={styles.isComplitedCheckbox}
+							checked={completed}
+							onChange={() =>
+								requestChangeChecked({
+									id,
+									completed,
+									title,
+									setRefreshToDo,
+									refreshToDo,
+								})
+							}
+						></input>
+						<ChangeTaskButton />
+						<DeleteTaskButton
+							isDeleting={isDeleting}
+							requestDeleteToDo={requestDeleteToDo}
+							id={id}
+						/>
+					</li>
+				))
 			)}
 		</ol>
 	);
