@@ -37,7 +37,12 @@ export const ToDoMainPage = (props) => {
 				{isLoading ? (
 					<div className={styles.loader}></div>
 				) : (
-					toDo.map(({ id, title }) => (
+					(results
+						? results
+						: alphabetFilter !== toDo
+						? alphabetFilter
+						: toDo
+					).map(({ id, title }) => (
 						<li key={id}>
 							<Link to={`task/${id}`}>{title}</Link>
 						</li>

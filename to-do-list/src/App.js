@@ -65,7 +65,17 @@ function App() {
 							/>
 						}
 					/>
-					<Route path="/task/:id" element={<Task toDo={toDo} />} />
+					<Route
+						path="/task/:id"
+						element={
+							<Task
+								toDo={toDo}
+								refreshToDo={refreshToDo}
+								setRefreshToDo={setRefreshToDo}
+								isLoading={isLoading}
+							/>
+						}
+					/>
 				</Routes>
 			</div>
 		</>

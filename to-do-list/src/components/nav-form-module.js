@@ -39,7 +39,7 @@ export const NavForm = (props) => {
 				<input
 					className={styles.inputLine}
 					value={searchTerm}
-					placeholder="Serch tasks"
+					placeholder="Search tasks"
 					onChange={handleSearch}
 				></input>
 			)}
@@ -50,6 +50,7 @@ export const NavForm = (props) => {
 				handleAddToDo={handleAddToDo}
 				setIsAdding={setIsAdding}
 			/>
+
 			{!isAdding && (
 				<SortTasks
 					setAlphabetFilter={setAlphabetFilter}
