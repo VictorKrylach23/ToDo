@@ -1,7 +1,8 @@
 import './App.css';
 import { useState } from 'react';
-import { NavForm, ToDoList } from './components';
-import { useRequestDeleteToDo, useRequestGetToDo } from './hooks';
+import { ToDoMainPage, Task } from './components';
+import { useRequestGetToDo } from './hooks';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
 	const [toDo, setToDO] = useState([]);
@@ -40,42 +41,33 @@ function App() {
 		setIsAdding(false);
 	};
 
-	const { requestDeleteToDo, isDeleting } = useRequestDeleteToDo(
-		refreshToDo,
-		setRefreshToDo,
-	);
-
 	return (
 		<>
 			<div className="toDo">ToDoList</div>
-			<NavForm
-				isAdding={isAdding}
-				newToDoTitle={newToDoTitle}
-				setNewToDoTitle={setNewToDoTitle}
-				handleAddToDo={handleAddToDo}
-				setIsAdding={setIsAdding}
-				toDo={toDo}
-				setAlphabetFilter={setAlphabetFilter}
-				alphabetFilter={alphabetFilter}
-				setToDO={setToDO}
-				setResults={setResults}
-				results={results}
-			/>
-			<ToDoList
-				isLoading={isLoading}
-				toDo={toDo}
-				isDeleting={isDeleting}
-				requestDeleteToDo={requestDeleteToDo}
-				isAdding={isAdding}
-				newToDoTitle={newToDoTitle}
-				setNewToDoTitle={setNewToDoTitle}
-				handleAddToDo={handleAddToDo}
-				setIsAdding={setIsAdding}
-				setRefreshToDo={setRefreshToDo}
-				refreshToDo={refreshToDo}
-				results={results}
-				alphabetFilter={alphabetFilter}
-			/>
+			<div>
+				<Routes>
+					<Route
+						path="/"
+						element={
+							<ToDoMainPage
+								isLoading={isLoading}
+								toDo={toDo}
+								isAdding={isAdding}
+								newToDoTitle={newToDoTitle}
+								setNewToDoTitle={setNewToDoTitle}
+								handleAddToDo={handleAddToDo}
+								setIsAdding={setIsAdding}
+								setAlphabetFilter={setAlphabetFilter}
+								alphabetFilter={alphabetFilter}
+								setToDO={setToDO}
+								setResults={setResults}
+								results={results}
+							/>
+						}
+					/>
+					<Route path="/task/:id" element={<Task toDo={toDo} />} />
+				</Routes>
+			</div>
 		</>
 	);
 }
