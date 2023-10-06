@@ -48,7 +48,7 @@ export const Task = (props) => {
 	};
 
 	return (
-		<div>
+		<div className={styles.taskMainDiv}>
 			{isLoading ? (
 				<div className={styles.loader}></div>
 			) : (
@@ -104,7 +104,7 @@ export const Task = (props) => {
 							/>
 						</>
 					) : (
-						<div>Task deleted</div>
+						<div className={styles.deleteAlert}>Task deleted</div>
 					)}
 				</>
 			)}
